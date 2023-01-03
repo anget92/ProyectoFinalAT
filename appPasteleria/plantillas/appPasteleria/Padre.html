@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT Pastelería</title>
+    <link rel="icon" href="images/AT_2_negro-01.png">
+    <link rel="stylesheet" href="{% static 'appPasteleria\css\styles.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'appPasteleria\css\normalize.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    
+
+</head>
+<body id="Inicio">
+	<div class="nav-bar">
+		<div class="nav-bar-1">
+			<input type="checkbox" id="btn-menu">
+			<label for="btn-menu"><img alt="Menu" src="images/menu.png" class="image-menu"></label>
+			
+		
+    		<nav class="main-menu">
+        		<ul class="main-menu_list">
+            		<li><a href="index.html">Inicio</a></li>
+            		<li><a href="#about-me">Sobre mí</a></li>
+            		<li><a href="tienda.html">Productos</a></li>
+            		<li><a href="#contact">Contacto</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                    {% endif %}
+
+       			</ul>
+  
+   			</nav>
+   		</div>
+   		<img class="main-menu_icon" alt="Logo" src="images/ImagenPerfil_AT.png"/>
+   		
+   	</div>
+    <header>
+
+        {% block titulo %}
+
+        {% endblock %}
+
+    </header>
+
+    
+
+    <section>
+
+        {% block contenido %}
+
+       
+
+        {% endblock %}
+
+        <div class="contact" id="contact" >
+        	<div>
+        		<h2>Sígueme en mis redes sociales</h2>
+        	</div>
+        	<div class="icons">
+        		<a href="https://www.facebook.com/pages/category/Product-Service/atpasteleria-108806070691172/" ><img  alt="Facebook" class="main-socialmedia__item" src="images/facebook.png"/></a>
+            	<a href="https://www.instagram.com/atpasteleria/" ><img alt="Instagram" class="main-socialmedia__item" src="images/instagram.png"/></a>
+            	<a href="https://wa.link/m261o0" ><img alt="whatsapp" class="main-socialmedia__item" src="images/whatsapp.png"/></a>
+        	</div>
+        	
+
+        </div>
+
+    </section>
+
+    <footer class="pie">
+        <h2>Copyright © AT Pastelería 2020</h2>
+    </footer>
+
+</body>
+</html>

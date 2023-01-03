@@ -1,0 +1,69 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    
+
+    {% if user.is_authenticated %}
+
+    <h1 class="portada-bienvenida">Bienvenido {{ user.first_name }}</h1>
+
+    {% else %}
+
+    <div class="portada-bienvenida_contact-buttom" >
+        <a href="{% url 'register' %}">Regístrate</a>
+    </br>
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+    </div>
+
+    {% endif %}
+     
+
+   
+    
+
+</div>
+
+{% endblock %}
+
+
+{% block contenido %}
+
+
+
+<div class="about-me" id="about-me">
+            
+    <div class="about-me_parrafo">
+
+        <h2>Sobre mí</h2>
+        <p>
+            Hola! mi nombre es Ángel Tang, y junto a mi familia nos dedicamos realizar muchos tipos de productos de repostería para cualquier celebración.
+            <br/><br/>
+            Nos encargamos desde hacer tortas personalizadas, hasta mini postres para decorar tu mesa de dulces.
+            <br/><br/>
+
+            Estamos ubicados en la ciudad de La Plata.
+        </p>
+
+    </div>
+
+    <div class="images">
+        <img alt="Red Velvet" src="images/marblecake.jpeg"/>
+        <img alt="Chocolate Cake" src="images/chocolatecakeportada.jpeg"/>
+        <img alt="Cupcakes" src="images/nakedcake.jpeg"/>
+        <img alt="Cookies" src="images/sprinklescake.jpeg"/>
+        <img alt="Torta diseñada" src="images/esudiantescake.jpeg"/>
+        <img alt="Alfajores" src="images/mariposascake.jpeg"/>
+        <img alt="Brownie" src="images/sistemacake.jpeg"/>
+        <img alt="Macarons" src="images/lineascake.jpeg"/>
+        <img alt="Cupcakes Chocolate" src="images/bodacake.jpeg"/>
+
+
+    </div>
+</div>
+
+{% endblock %}

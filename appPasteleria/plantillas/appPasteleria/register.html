@@ -1,0 +1,27 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    <h1 class="portada-bienvenida">Crea tu usuario</h1>
+    
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+
+<form action="{% url 'register' %}" method='POST'> {% csrf_token %}
+
+    <table>
+        {{form.as_table}}
+    </table>
+
+    <input type='submit' value='Crear usuario'>
+</form>
+
+{% endblock %}
