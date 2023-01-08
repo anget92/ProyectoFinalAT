@@ -1,0 +1,31 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    <h1 class="portada-bienvenida">Edita tu usuario</h1>
+    
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+<div>
+    <form action="{% url 'agregarAvatar' %}" method='POST' enctype="multipart/form-data"> {% csrf_token %}
+
+        <table>
+            {{form.as_table}}
+        </table>
+
+        <input type='submit' value='Cargar Avatar'>
+    </form>
+</div>
+
+
+
+{% endblock %}
+

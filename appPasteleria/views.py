@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from appPasteleria.forms import RegistroUsuarioForm
+from appPerfiles.views import obtenerAvatar, datosPerfil
 
 def inicio(request):
     return render(request, 'appPasteleria/index.html')
@@ -30,7 +31,7 @@ def login_request(request):
             usuario=authenticate(username=username, password=password)
             if usuario is not None:
                 login(request, usuario)
-                return render(request, 'appPasteleria/index.html', {'mensaje':f'Bienvenido {usuario}'})
+                return render(request, 'appPerfiles/perfil.html', {'imagen':obtenerAvatar(request), 'info':datosPerfil(request)})
             else:
                 form=AuthenticationForm()
                 return render(request, 'appPasteleria/login.html', {'mensaje':'Usuario o contraseña incorrecto', 'form':form})
@@ -40,6 +41,6 @@ def login_request(request):
             return render(request, 'appPasteleria/login.html', {'mensaje':'Usuario o contraseña incorrecto', 'form':form})
     else:
         form=AuthenticationForm()
-    return render(request, 'appPasteleria/login.html', {'form':form})
+    return render(request, 'appPasteleria/login.html', {'mensaje':'Usuario o contraseña incorrecto', 'form':form})
 
 

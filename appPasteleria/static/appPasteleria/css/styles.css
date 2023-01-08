@@ -273,3 +273,118 @@
     font-size: 1em;
     font-weight: 500;
 }
+
+
+
+/* ------------- Perfil -------------- */
+
+
+.contenido_principal{
+    display: flex;
+    justify-content: center;
+
+}
+
+.avatar_usuario img{
+    width: 200px;
+    height: 200PX;
+    object-fit: cover;
+    border: 5px solid rgb(18, 139, 175);
+    border-radius: 100%;
+}
+
+.datos_perfil, .mas_datos_perfil{
+    
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20px;
+   
+
+}
+
+.mas_datos_perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+
+}
+
+.datos_perfil h3 {
+
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font: bold;
+
+}
+.mas_datos_perfil h3{
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font: bold;
+    
+
+}
+
+.btn-editar{
+
+    
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 10%;
+    background: rgb(18, 139, 175);
+    border-radius: 10px;
+    padding: 10px;
+    
+    
+    
+    
+    
+}
+
+
+
+/* --------------------Registro Usuario--------------------- */
+.tabla_principal_registro{
+    width: 100%;
+    text-align: center;
+
+}
+
+.tabla_registro{
+    width: 100%;
+}
+.tabla_registro tr{
+    display: flex;
+    flex-direction: column;
+}
+
+.tabla_registro input{
+    width: 40%;
+    height: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid gray ;
+}
+
+.btn-register{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 10%;
+    background: rgb(18, 139, 175);
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    margin: 30px;
+    
+}
+
+.btn-register:hover {
+    cursor: pointer;
+    background: rgba(18, 139, 175, 0.7);
+
+}
+

@@ -1,0 +1,72 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    
+
+    {% if user.is_authenticated %}
+
+    <h1 class="portada-bienvenida">Bienvenido {{ user.first_name }}</h1>
+
+    <div class="avatar_usuario" href="{'agregarAvatar'}">
+        <a href="{% url 'agregarAvatar' %}"><img src="{{ imagen }}" alt="imagen_perfil" ></a>
+
+        
+    </div>
+    {{ mensaje }}
+
+    {% else %}
+
+    <div class="portada-bienvenida_contact-buttom" >
+        <a href="{% url 'register' %}">Regístrate</a>
+    </br>
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+
+        
+
+    </div>
+
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="datos_perfil">
+
+<h3> Nombre: {{ user.first_name }} </h3>
+<h3> Apellido: {{ user.last_name }} </h3>
+<h3> Username: {{ user.username }} </h3>
+<h3> Email: {{ user.email}} </h3>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block contenido2 %}
+
+<div class="mas_datos_perfil">
+
+    {% for inf in info %}
+    <div>
+        <h3> Fecha de nacimiento: {{ inf.fecha_nacimiento }} </h3>
+        <h3> Ubicación: {{ inf.ubicacion }} </h3>
+        <h3> Biografía: {{ inf.biografia|safe }} </h3>
+    </div>
+    {% endfor %}
+    
+    <a class="btn-editar" href="{% url 'agregarDatos' %}">Editar</a>
+    
+</div>
+
+{% endblock %}

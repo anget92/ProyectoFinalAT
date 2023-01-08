@@ -1,0 +1,73 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    
+
+    {% if user.is_authenticated %}
+
+    <h1 class="portada-bienvenida">Bienvenido {{ user.first_name }}</h1>
+
+    <div class="avatar_usuario">
+        <img src="{{ imagen }}" alt="imagen_perfil">
+    </div>
+
+    {% else %}
+
+    <div class="portada-bienvenida_contact-buttom" >
+        <a href="{% url 'register' %}">Regístrate</a>
+    </br>
+        <a href="{% url 'login' %}">Iniciar sesión</a>
+    </div>
+
+    {% endif %}
+
+    
+
+    
+     
+
+   
+    
+
+</div>
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="datos_perfil">
+
+    <h3> Nombre: {{ user.first_name }} </h3>
+    <h3> Apellido: {{ user.last_name }} </h3>
+    <h3> Username: {{ user.username }} </h3>
+    <h3> Email: {{ user.email}} </h3>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block contenido2 %}
+
+<div class="datosPerfil">
+
+  
+    {% for inf in info %}
+
+    <li> {{ inf.fecha_nacimiento }}, {{ inf.ubicacion }}, {{ biografia }}</li>
+
+    {% endfor %}
+    
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    <h1 class="portada-bienvenida">Edita tu usuario</h1>
+    
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+<form action="{% url 'agregarDatos' %}" method='POST'> {% csrf_token %}
+
+    <table>
+        {{ form_datos.as_table }}
+    </table>
+
+    <input type='submit' value='Cargar'>
+</form>
+
+{% endblock %}

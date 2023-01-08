@@ -15,13 +15,13 @@
 
 
 
-<form action="{% url 'register' %}" method='POST'> {% csrf_token %}
+<form action="{% url 'register' %}" method='POST' class="tabla_principal_registro"> {% csrf_token %}
 
-    <table>
-        {{form.as_table}}
+    <table class="tabla_registro">
+        {{ form }}
     </table>
 
-    <input type='submit' value='Crear usuario'>
+    <input type="submit" class='btn-register' value="Crear usuario">
 </form>
 
 {% endblock %}

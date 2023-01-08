@@ -1,0 +1,37 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+   
+    <h1 class="portada-bienvenida">Recetas</h1>
+       
+</div>
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="datos_perfil">
+
+    
+
+    <div>
+        <h2>{{ receta.titulo }}</h2>
+        <p>{{ receta.cuerpo|safe }}</p>
+        <p>{{ receta.fecha }}</p>
+        <p>{{ receta.autor }}</p>
+    </div>
+
+    
+
+</div>
+
+
+
+{% endblock %}
+

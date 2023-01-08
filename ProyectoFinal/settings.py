@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'appPasteleria',
+    'appPerfiles',
+    'appMensajeria',
+    'ckeditor',
+    'appBlog',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'ProyectoFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["appPasteleria\plantillas"],
+        'DIRS': ["appPasteleria\plantillas", "appPerfiles\plantillas", "appBlog\plantillas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +126,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+CKEDITOR_UPLOAD_PATH= 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
+
+LOGIN_URL = '/appPasteleria/login/'
+
+LOGOUT_REDIRECT_URL = '/appPasteleria/login/'
