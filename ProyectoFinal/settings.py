@@ -59,7 +59,7 @@ ROOT_URLCONF = 'ProyectoFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["appPasteleria\plantillas", "appPerfiles\plantillas", "appBlog\plantillas"],
+        'DIRS': ["appPasteleria\plantillas", "appPerfiles\plantillas", "appBlog\plantillas", "appMensajeria\plantillas"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

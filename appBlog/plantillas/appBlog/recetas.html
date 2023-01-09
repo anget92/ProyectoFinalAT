@@ -21,10 +21,12 @@
     {% for receta in recetas %}
 
     <div>
+        
         <h2><a href="{% url 'leer_receta' receta.id %}">{{ receta.titulo }}</a></h2>
         <p>{{ receta.snippet|safe }}</p>
         <p>{{ receta.fecha }}</p>
         <p>{{ receta.autor }}</p>
+        
     </div>
 
     {% endfor %}

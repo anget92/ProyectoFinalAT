@@ -1,0 +1,35 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+   
+    <h1 class="portada-bienvenida">Leer mensajes</h1>
+       
+</div>
+
+{% endblock %}
+
+
+{% block contenido %}
+
+    {% for mensaje in mensajes %}
+        {% if mensaje.leido %}
+        <li> leido </li>
+
+        <li> {{ mensaje.cuerpo }} {{ mensaje.fecha }} {{ mensaje.emisor }} </li>
+
+        {% else %}
+
+        <li> Sin leer </li>
+
+        <li> {{ mensaje.cuerpo }} {{ mensaje.fecha }} {{ mensaje.emisor }} </li>
+
+        {% endif %}
+
+
+    {% endfor %}
+
+{% endblock %}

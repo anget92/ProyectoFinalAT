@@ -5,7 +5,7 @@ urlpatterns = [
     path('perfil/', perfil, name='perfil'),
     path('editarPerfil/', agregarAvatar, name='agregarAvatar'),
     path('datosPerfil/', datosPerfil, name='datosPerfil'),
-    path('editarDatos/', agregarDatosPerfil, name='agregarDatos'),
+    path('editarDatos/', info_datosPerfil, name='agregarDatos'),
     
 ]
 

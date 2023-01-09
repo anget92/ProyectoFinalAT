@@ -48,11 +48,6 @@ def agregarDatosPerfil(request):
         form=agregarInfoPerfil(request.POST)
         if form.is_valid():
 
-            infoVieja=informacionPerfil.objects.filter(user=request.user)
-
-            if len(infoVieja) != 0:
-                infoVieja.delete()
-
             diccionario=form.cleaned_data
             fecha=diccionario['fecha_nacimiento']
             ubicacion=diccionario['ubicacion']
@@ -66,5 +61,38 @@ def agregarDatosPerfil(request):
 
     else:
         form=agregarInfoPerfil()
-    return render(request, 'appPerfiles/editarDatos.html', {'form_datos':form})
+    return render(request, 'appPerfiles/agregarDatos.html', {'form':form})
 
+
+def editarDatosPerfil(request):
+    datos=informacionPerfil.objects.get(user=request.user)
+
+    if request.method=='POST':
+        form=agregarInfoPerfil(request.POST)
+        if form.is_valid():
+            informacion=form.cleaned_data
+            datos.fecha_nacimiento=informacion['fecha_nacimiento']
+            datos.ubicacion=informacion['ubicacion']
+            datos.biografia=informacion['biografia']
+            datos.save()
+            return render(request, 'appPerfiles/perfil.html', {'imagen':obtenerAvatar(request), 'info':datosPerfil(request)} )
+    else:
+        form=agregarInfoPerfil(initial={'fecha_nacimiento':datos.fecha_nacimiento, 'ubicacion':datos.ubicacion, 'biografia':datos.biografia})
+    return render(request, 'appPerfiles/agregarDatos.html', {'form':form, 'datos':datos} )
+
+
+def info_datosPerfil(request):
+
+    info=informacionPerfil.objects.filter(user=request.user)
+
+    if len(info)!=0:
+        
+        return editarDatosPerfil(request)
+
+    else:
+        
+        return agregarDatosPerfil(request)
+
+    
+        
+    

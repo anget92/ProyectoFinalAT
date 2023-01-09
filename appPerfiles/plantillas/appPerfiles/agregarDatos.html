@@ -16,7 +16,7 @@
 <form action="{% url 'agregarDatos' %}" method='POST'> {% csrf_token %}
 
     <table>
-        {{ form_datos.as_table }}
+        {{ form.as_table }}
     </table>
 
     <input type='submit' value='Cargar'>

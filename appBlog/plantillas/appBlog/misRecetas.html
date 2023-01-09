@@ -18,17 +18,20 @@
 
 <div class="datos_perfil">
 
-    
+    {% for receta in recetas %}
 
     <div>
-        <h2>{{ receta.titulo }}</h2>
-        <p>{{ receta.cuerpo|safe }}</p>
+        <h2><a href="{% url 'leer_receta' receta.id %}">{{ receta.titulo }}</a></h2>
+        <p>{{ receta.snippet|safe }}</p>
         <p>{{ receta.fecha }}</p>
-        <img src="{{ receta.imagen.url }}"/>
         <p>{{ receta.autor }}</p>
+        
     </div>
-
+    <a class="btn-editar" href="{% url 'eliminarReceta' receta.id %}">Borrar</a>
+    <a class="btn-editar" href="{% url 'editarReceta' receta.id %}">Editar</a>
     
+
+    {% endfor %}
 
 </div>
 

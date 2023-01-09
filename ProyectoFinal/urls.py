@@ -27,7 +27,8 @@ urlpatterns = [
     path('appPerfiles/', include('appPerfiles.urls')),
     path("", include('appPasteleria.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('appBlog/', include('appBlog.urls'))
+    path('appBlog/', include('appBlog.urls')),
+    path('appMensajeria/', include('appMensajeria.urls')),
     
 ]
 

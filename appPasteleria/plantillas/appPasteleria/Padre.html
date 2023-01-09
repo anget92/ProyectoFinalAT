@@ -30,7 +30,7 @@
         		<ul class="main-menu_list">
             		<li><a href="{% url 'inicio' %}">Inicio</a></li>
             		<li><a href="#about-me">Sobre mí</a></li>
-            		<li><a href="tienda.html">Productos</a></li>
+            		<li><a href="{% url 'ver_recetas' %}">Recetas</a></li>
             		<li><a href="#contact">Contacto</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'perfil' %}">Mi perfil</a></li>

@@ -1,0 +1,34 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    <h1 class="portada-bienvenida">Enviar mensaje</h1>
+    
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+
+<form action="{% url 'enviarMensaje' %}" method='POST' class="tabla_principal_registro"> {% csrf_token %}
+
+    <table class="tabla_registro">
+
+        {{ formulario }}
+
+       
+        
+
+        
+            
+    </table>
+
+    <input type="submit" class='btn-register' value="Enviar">
+</form>
+
+{% endblock %}

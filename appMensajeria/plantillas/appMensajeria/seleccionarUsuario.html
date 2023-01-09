@@ -1,0 +1,24 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+
+    <h1 class="portada-bienvenida">Enviar mensaje</h1>
+    
+</div>
+{% endblock %}
+
+{% block contenido %}
+
+
+
+<select>
+    {% for user in users %}
+    <option>{{ user.first_name }}</option>
+    {% endfor %}
+</select>
+
+{% endblock %}

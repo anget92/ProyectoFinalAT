@@ -1,0 +1,47 @@
+{% extends 'appPasteleria/padre.html' %}
+
+{% load static %}
+
+{% block titulo %}
+
+<div class="portada">
+   
+    <h1 class="portada-bienvenida">Leer mensajes</h1>
+       
+</div>
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="datos_perfil">
+
+    
+    <h2>Ingresa el nombre de usuario</h2>
+
+    <form action="{% url 'leerMensaje' %}" method="GET">
+
+        <input name="receptor" id="receptor" type="text">
+
+        <input type="submit" value="Buscar">
+
+    </form>
+    
+
+</div>
+
+
+
+{% endblock %}
+
+{% block contenido2 %}
+
+    {% for mensaje in mensajes %}
+
+        <li> {{ mensaje.cuerpo }} {{ mensaje.fecha }}</li>
+
+    {% endfor %}
+
+{% endblock %}
