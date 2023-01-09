@@ -1,3 +1,5 @@
+
+
 *{
     font-family: "Epilogue", "sans-serif";
 
@@ -117,7 +119,7 @@
 .portada {
     width: 100%;
     height: 640px;
-    background-image: url("images/mariposascake.jpeg");
+    background-image: url("/static/appPasteleria/assets/portada.jpg");
     background-size: cover;
     background-position: 14% 40%;
     background-repeat: no-repeat;
@@ -125,21 +127,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
     
 
 }
 
 .portada-bienvenida {
-    width: 30%;
+    width: 100%;
     min-width: 330px;
     display: inline-block;
     text-align: center;
     font-size: 3rem;
-    color: black;
+    color: white;
     text-transform: uppercase;
+    background-color: rgba(0,0,0,0.5);
+    padding: 60px;
     
-    
+}
 
+.menu_perfil{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu_perfil a{
+    width: auto;
+    margin: 20px;
 }
 
 
@@ -337,6 +351,7 @@
     background: rgb(18, 139, 175);
     border-radius: 10px;
     padding: 10px;
+    align-items: center;
     
     
     
@@ -388,3 +403,120 @@
 
 }
 
+
+/* ------------- Mensajeria----------------- */
+
+.contenido_principal{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.parte_contenido_principal{
+    width: 500px;
+    height: auto;
+    text-align: center;
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+parte_contenido_principal2{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tabla_principal_mensaje{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+#id_receptor{
+    width: 100%;
+    height: 30px;
+    margin: 20px;
+    border-radius: 20px;
+    border: 1px solid gray ;
+
+}
+
+#id_cuerpo{
+    width: 100%;
+    height: 30px;
+    margin: 20px;
+    border-radius: 20px;
+    border: 1px solid gray ;
+
+}
+
+.btn-enviar{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 50%;
+    background: rgb(18, 139, 175);
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    margin: 30px;
+    
+}
+
+.btn-enviar:hover {
+    cursor: pointer;
+    background: rgba(18, 139, 175, 0.7);
+
+}
+
+.cuadro_mensaje{
+    width: 70%;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    background-color: rgb(95, 198, 230);
+    padding: 5px;
+}
+
+.leido{
+    color: gray;
+    text-align: left;
+    margin-left: 20px;
+    font-size: 0.8rem;
+}
+
+.emisor_mensaje, .cuerpo_mensaje{
+    text-align: left;
+    margin-left: 20px;
+    color: #EDF2F4;
+    
+}
+
+.fecha_mensaje{
+    color: gray;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 0.8rem;
+
+
+}
+
+.btn-escrbir_mensaje{
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 15%;
+    background: rgb(18, 139, 175);
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    margin: 30px;
+    text-align: center;
+}

@@ -15,13 +15,19 @@
     <div class="avatar_usuario" href="{'agregarAvatar'}">
         <a href="{% url 'agregarAvatar' %}"><img src="{{ imagen }}" alt="imagen_perfil" ></a>
 
+        
+       
+    </div>
+
+    <div class="menu_perfil">
         <a class="btn-editar" href="{% url 'agregarArticulo' %}">Agregar receta</a>
-    
+        
         <a class="btn-editar" href="{% url 'misRecetas' %}">Mis recetas</a>
 
+        <a class="btn-editar" href="{% url 'mensajeRecibido' %}">Mensajería</a>
 
-        
     </div>
+
     {{ mensaje }}
 
     {% else %}

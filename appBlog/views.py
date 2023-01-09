@@ -32,21 +32,24 @@ def ver_recetas(request):
     
     return render(request, 'appBlog/recetas.html', {'recetas':recetas})
 
+@login_required
 def leer_receta(request, id):
     receta=articulo.objects.get(id=id)
     return render(request, 'appBlog/leer_receta.html', {'receta':receta})
 
+@login_required
 def mis_recetas(request):
     receta=articulo.objects.filter(autor=request.user)
     return render(request, 'appBlog/misRecetas.html', {'recetas':receta})
 
-
+@login_required
 def eliminar_Receta(request, id):
     receta=articulo.objects.get(id=id)
     receta.delete()
     receta=articulo.objects.filter(autor=request.user)
     return render(request, 'appBlog/misRecetas.html', {'recetas':receta})
 
+@login_required
 def editarReceta(request, id):
     receta=articulo.objects.get(id=id)
     if request.method=='POST':
@@ -59,7 +62,13 @@ def editarReceta(request, id):
             receta.save()
             recetas=articulo.objects.filter(autor=request.user)
     
-        return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
+            return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
+
+        else:
+            formulario=agregarArticulo(initial={'titulo':receta.titulo, 'cuerpo':receta.cuerpo, 'imagen':receta.imagen})
+            return render(request, 'appBlog/editarRecetas.html', {'form':formulario, 'recetas':receta, 'mensaje':'Introdujiste un dato erróneo'})
+            
+
 
     else:
         formulario=agregarArticulo(initial={'titulo':receta.titulo, 'cuerpo':receta.cuerpo, 'imagen':receta.imagen})

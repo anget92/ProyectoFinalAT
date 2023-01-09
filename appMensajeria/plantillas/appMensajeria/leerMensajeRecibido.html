@@ -6,7 +6,7 @@
 
 <div class="portada">
    
-    <h1 class="portada-bienvenida">Leer mensajes</h1>
+    <h1 class="portada-bienvenida">Mensajes recibidos</h1>
        
 </div>
 
@@ -15,21 +15,27 @@
 
 {% block contenido %}
 
+<div class="parte_contenido_principal">
     {% for mensaje in mensajes %}
         {% if mensaje.leido %}
-        <li> leido </li>
-
-        <li> {{ mensaje.cuerpo }} {{ mensaje.fecha }} {{ mensaje.emisor }} </li>
-
+        <div class="cuadro_mensaje">
+            <p class="emisor_mensaje"> {{ mensaje.emisor.first_name }} {{ mensaje.emisor.last_name }} </p>
+            <p class="leido"> Leído </p>
+            <p class="cuerpo_mensaje"> {{ mensaje.cuerpo }}  </p>
+            <p class="fecha_mensaje">{{ mensaje.fecha }}</p>
+        </div>    
         {% else %}
-
-        <li> Sin leer </li>
-
-        <li> {{ mensaje.cuerpo }} {{ mensaje.fecha }} {{ mensaje.emisor }} </li>
-
+        <div class="cuadro_mensaje">
+            <p class="emisor_mensaje"> {{ mensaje.emisor }} </p>
+            <p class="leido"> Sin leer </p>
+            <p class="cuerpo_mensaje"> {{ mensaje.cuerpo }}  </p>
+            <p class="fecha_mensaje">{{ mensaje.fecha }}</p>
+            
+        </div>
         {% endif %}
-
-
     {% endfor %}
 
+    
+</div>
+<a class="btn-escrbir_mensaje" href="{% url 'mensajeRecibido' %}">Escribir Mensaje</a>
 {% endblock %}

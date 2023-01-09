@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     {% load static %}
+    
     <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
     <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
     <meta charset="UTF-8">
@@ -29,31 +30,32 @@
     		<nav class="main-menu">
         		<ul class="main-menu_list">
             		<li><a href="{% url 'inicio' %}">Inicio</a></li>
-            		<li><a href="#about-me">Sobre mí</a></li>
+            		<li><a href="{% url 'sobreMi' %}">Sobre mí</a></li>
             		<li><a href="{% url 'ver_recetas' %}">Recetas</a></li>
-            		<li><a href="#contact">Contacto</a></li>
+                    <li><a href="{% url 'enviarMensaje' %}">Mensajería</a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'perfil' %}">Mi perfil</a></li>
                     <li><a href="{% url 'logout' %}">Cerrar sesión</a></li>
                     {% else %}
                     <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+                    
                     {% endif %}
 
        			</ul>
   
    			</nav>
    		</div>
-   		<img class="main-menu_icon" alt="Logo" src="images/ImagenPerfil_AT.png"/>
+   		<img class="main-menu_icon" alt="Logo" src="{% static 'appPasteleria/assets/ImagenPerfil_AT.png' %}"/>
    		
    	</div>
     <header>
 
-        {% block titulo %}
-
-        {% endblock %}
+       
 
     </header>
+    {% block titulo %}
 
+    {% endblock %}
     
 
     <section>
@@ -80,9 +82,9 @@
         		<h2>Sígueme en mis redes sociales</h2>
         	</div>
         	<div class="icons">
-        		<a href="https://www.facebook.com/pages/category/Product-Service/atpasteleria-108806070691172/" ><img  alt="Facebook" class="main-socialmedia__item" src="images/facebook.png"/></a>
-            	<a href="https://www.instagram.com/atpasteleria/" ><img alt="Instagram" class="main-socialmedia__item" src="images/instagram.png"/></a>
-            	<a href="https://wa.link/m261o0" ><img alt="whatsapp" class="main-socialmedia__item" src="images/whatsapp.png"/></a>
+        		<a href="https://www.facebook.com/pages/category/Product-Service/atpasteleria-108806070691172/" ><img  alt="Facebook" class="main-socialmedia__item" src="{% static 'appPasteleria/assets/facebook.png' %}"/></a>
+            	<a href="https://www.instagram.com/atpasteleria/" ><img alt="Instagram" class="main-socialmedia__item" src="{% static 'appPasteleria/assets/instagram.png' %}"/></a>
+            	<a href="https://wa.link/m261o0" ><img alt="whatsapp" class="main-socialmedia__item" src="{% static 'appPasteleria/assets/whatsapp.png' %}"/></a>
         	</div>
         	
 

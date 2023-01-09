@@ -6,29 +6,56 @@
 
 <div class="portada">
 
-    <h1 class="portada-bienvenida">Enviar mensaje</h1>
+    <h1 class="portada-bienvenida">Mensajes enviados</h1>
     
 </div>
 {% endblock %}
 
+
+
 {% block contenido %}
 
-
-
-<form action="{% url 'enviarMensaje' %}" method='POST' class="tabla_principal_registro"> {% csrf_token %}
-
-    <table class="tabla_registro">
-
-        {{ formulario }}
-
-       
-        
-
-        
+<div class="parte_contenido_principal">
+    {% for mensaje in mensajes %}
+        {% if mensaje.leido %}
+        <div class="cuadro_mensaje">
+            <p class="emisor_mensaje"> {{ mensaje.emisor.first_name }} {{ mensaje.emisor.last_name }} </p>
+            <p class="leido"> Leído </p>
+            <p class="cuerpo_mensaje"> {{ mensaje.cuerpo }}  </p>
+            <p class="fecha_mensaje">{{ mensaje.fecha }}</p>
+        </div>    
+        {% else %}
+        <div class="cuadro_mensaje">
+            <p class="emisor_mensaje"> {{ mensaje.emisor }} </p>
+            <p class="leido"> Sin leer </p>
+            <p class="cuerpo_mensaje"> {{ mensaje.cuerpo }}  </p>
+            <p class="fecha_mensaje">{{ mensaje.fecha }}</p>
             
-    </table>
+        </div>
+        {% endif %}
+    {% endfor %}
+</div>
 
-    <input type="submit" class='btn-register' value="Enviar">
-</form>
+{% endblock %}
+
+{% block contenido2 %}
+
+<div class="parte_contenido_principal2">
+    <form action="{% url 'enviarMensaje' %}" method='POST' class="tabla_principal_mensaje"> {% csrf_token %}
+
+        <table class="cuadro_mensajes">
+
+            {{ formulario.receptor }}
+            {{ formulario.cuerpo }}
+                
+        </table>
+
+        <input type="submit" class='btn-enviar' value="Enviar">
+    </form>
+
+    
+</div>
+
+<a class="btn-escrbir_mensaje" href="{% url 'recibirMensaje' %}">Ver mensajes recibidos</a>
 
 {% endblock %}

@@ -5,20 +5,22 @@
 {% block titulo %}
 
 <div class="portada">
-
+    
     
 
     {% if user.is_authenticated %}
 
-    <h1 class="portada-bienvenida">Bienvenido {{ user.first_name }}</h1>
+    <h1 class="portada-bienvenida" >Bienvenido {{ user.first_name }}</h1>
     
 
     {% else %}
 
-    <div class="portada-bienvenida_contact-buttom" >
-        <a href="{% url 'register' %}">Regístrate</a>
-    </br>
-        <a href="{% url 'login' %}">Iniciar sesión</a>
+    
+        <h1 class="portada-bienvenida">Bienvenidos!</h1>
+    
+    <div class="menu_perfil">
+        <a class="btn-editar" href="{% url 'register' %}">Regístrate</a>
+        <a class="btn-editar" href="{% url 'login' %}">Iniciar sesión</a>
     </div>
 
     {% endif %}
@@ -40,28 +42,28 @@
             
     <div class="about-me_parrafo">
 
-        <h2>Sobre mí</h2>
+        <h2>Acerca de esta web</h2>
         <p>
-            Hola! mi nombre es Ángel Tang, y junto a mi familia nos dedicamos realizar muchos tipos de productos de repostería para cualquier celebración.
+            Hola! esta es una web donde nos encontramos aquellos amantes de la cocina, específicamente de la repostería y panadería
             <br/><br/>
-            Nos encargamos desde hacer tortas personalizadas, hasta mini postres para decorar tu mesa de dulces.
+            Somos una comunidad que nos gusta compartir nuestras experiencias.
             <br/><br/>
 
-            Estamos ubicados en la ciudad de La Plata.
+            Así que prueba nuestras recetas y suma las tuyas para que otros puedan probarlas.
         </p>
 
     </div>
 
     <div class="images">
-        <img alt="Red Velvet" src="images/marblecake.jpeg"/>
-        <img alt="Chocolate Cake" src="images/chocolatecakeportada.jpeg"/>
-        <img alt="Cupcakes" src="images/nakedcake.jpeg"/>
-        <img alt="Cookies" src="images/sprinklescake.jpeg"/>
-        <img alt="Torta diseñada" src="images/esudiantescake.jpeg"/>
-        <img alt="Alfajores" src="images/mariposascake.jpeg"/>
-        <img alt="Brownie" src="images/sistemacake.jpeg"/>
-        <img alt="Macarons" src="images/lineascake.jpeg"/>
-        <img alt="Cupcakes Chocolate" src="images/bodacake.jpeg"/>
+        <img alt="Red Velvet" src="{% static 'appPasteleria/assets/bodacake.jpeg' %}"/>
+        <img alt="Chocolate Cake" src="{% static 'appPasteleria/assets/chocolatecakeportada.jpeg' %}"/>
+        <img alt="Cupcakes" src="{% static 'appPasteleria/assets/esudiantescake.jpeg' %}"/>
+        <img alt="Cookies" src="{% static 'appPasteleria/assets/lineascake.jpeg' %}"/>
+        <img alt="Torta diseñada" src="{% static 'appPasteleria/assets/mariposascake.jpeg' %}"/>
+        <img alt="Alfajores" src="{% static 'appPasteleria/assets/marblecake.jpeg' %}"/>
+        <img alt="Brownie" src="{% static 'appPasteleria/assets/nakedcake.jpeg' %}"/>
+        <img alt="Macarons" src="{% static 'appPasteleria/assets/sistemacake.jpeg' %}"/>
+        <img alt="Cupcakes Chocolate" src="{% static 'appPasteleria/assets/sprinklescake.jpeg' %}"/>
 
 
     </div>

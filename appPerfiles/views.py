@@ -2,6 +2,9 @@ from django.shortcuts import render
 from .models import Avatar, informacionPerfil
 from .forms import AvatarForm, agregarInfoPerfil
 from . import forms
+from django.contrib.auth.decorators import login_required
+
+
 
 def obtenerAvatar(request):
     lista=Avatar.objects.filter(user=request.user)
@@ -20,12 +23,12 @@ def datosPerfil(request):
         datos={'datos':'Sin datos'}
     return datos
 
-
+@login_required
 def perfil(request):
     return render(request, 'appPerfiles/perfil.html', {'imagen':obtenerAvatar(request), 'info':datosPerfil(request)})
 
 
-
+@login_required
 def agregarAvatar(request):
     if request.method=='POST':
         form=AvatarForm(request.POST, request.FILES)
@@ -42,7 +45,7 @@ def agregarAvatar(request):
         form=AvatarForm()
     return render(request, 'appPerfiles/editarPerfil.html', {'form':form, 'usuario':request.user})
 
-
+@login_required
 def agregarDatosPerfil(request):
     if request.method=='POST':
         form=agregarInfoPerfil(request.POST)
@@ -63,7 +66,7 @@ def agregarDatosPerfil(request):
         form=agregarInfoPerfil()
     return render(request, 'appPerfiles/agregarDatos.html', {'form':form})
 
-
+@login_required
 def editarDatosPerfil(request):
     datos=informacionPerfil.objects.get(user=request.user)
 
@@ -80,7 +83,7 @@ def editarDatosPerfil(request):
         form=agregarInfoPerfil(initial={'fecha_nacimiento':datos.fecha_nacimiento, 'ubicacion':datos.ubicacion, 'biografia':datos.biografia})
     return render(request, 'appPerfiles/agregarDatos.html', {'form':form, 'datos':datos} )
 
-
+@login_required
 def info_datosPerfil(request):
 
     info=informacionPerfil.objects.filter(user=request.user)

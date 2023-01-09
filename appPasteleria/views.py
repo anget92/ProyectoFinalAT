@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from appPasteleria.forms import RegistroUsuarioForm
 from appPerfiles.views import obtenerAvatar, datosPerfil
 
+
 def inicio(request):
     return render(request, 'appPasteleria/index.html')
 
@@ -41,6 +42,9 @@ def login_request(request):
             return render(request, 'appPasteleria/login.html', {'mensaje':'Usuario o contraseña incorrecto', 'form':form})
     else:
         form=AuthenticationForm()
-    return render(request, 'appPasteleria/login.html', {'mensaje':'Usuario o contraseña incorrecto', 'form':form})
+    return render(request, 'appPasteleria/login.html', {'form':form})
+
+def sobreMi(request):
+    return render(request, 'appPasteleria/sobreMi.html')
 
 
