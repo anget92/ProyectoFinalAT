@@ -6,7 +6,7 @@
 
 <div class="portada">
    
-    <h1 class="portada-bienvenida">Recetas</h1>
+    <h1 class="portada-bienvenida">{{ receta.titulo }}</h1>
        
 </div>
 
@@ -20,12 +20,11 @@
 
     
 
-    <div>
+    <div class="caja_recetas">
         <h2>{{ receta.titulo }}</h2>
         <p>{{ receta.cuerpo|safe }}</p>
-        <p>{{ receta.fecha }}</p>
         <img src="{{ receta.imagen.url }}"/>
-        <p>{{ receta.autor }}</p>
+        <p class="autor_fecha_receta">Publicado en {{ receta.fecha }}, por {{ receta.autor.first_name }} {{ receta.autor.last_name }}</p>
     </div>
 
     

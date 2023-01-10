@@ -107,7 +107,12 @@
 
 
 }
-
+}
+.descripcion_sobremi{
+    text-align: justify;
+    width: 60%;
+    align-items: center;
+    margin: auto;
 }
 
 .main-menu_icon {
@@ -309,35 +314,22 @@
 
 .datos_perfil, .mas_datos_perfil{
     
-    text-align: center;
-    width: 30%;
+    width: 60%;
     margin-bottom: 20px;
-   
-
-}
-
-.mas_datos_perfil{
+    
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    
+    align-items:flex-start;
 
 }
 
-.datos_perfil h3 {
+
+.datos_perfil h3, .mas_datos_perfil h3 {
 
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     color: black;
     font: bold;
-
-}
-.mas_datos_perfil h3{
-    text-align: left;
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    font: bold;
-    
 
 }
 
@@ -347,7 +339,7 @@
     color: white;
     font-size: 1rem;
     text-decoration: none;
-    width: 10%;
+    width: auto;
     background: rgb(18, 139, 175);
     border-radius: 10px;
     padding: 10px;
@@ -359,7 +351,9 @@
     
 }
 
-
+.mensaje_exito{
+    color: white;
+}
 
 /* --------------------Registro Usuario--------------------- */
 .tabla_principal_registro{
@@ -519,4 +513,58 @@ parte_contenido_principal2{
     border: none;
     margin: 30px;
     text-align: center;
+}
+
+/* --------------- Lista Recetas-------------------- */
+
+.caja_recetas{
+    border:1px solid gray;
+    border-radius: 20px;
+    margin: 20px;
+    padding:20px;
+    width: 100%;
+    
+}
+
+.titulo_receta{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color:rgb(18, 139, 175);
+}
+
+.autor_fecha_receta{
+    text-align: right;
+    color: gray;
+    font-size: 0.75rem;
+}
+
+.datos_receta{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+
+}
+.botones_recetas{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    align-items: center;
+    
+}
+
+.botones_recetas a{
+    width: auto;
+    padding: auto;
+    align-items: center;
+    margin: 20px;
+}
+
+.caja_recetas img{
+    
+    width: 80%;
+    
+
+    
+
 }

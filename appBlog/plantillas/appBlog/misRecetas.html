@@ -6,7 +6,7 @@
 
 <div class="portada">
    
-    <h1 class="portada-bienvenida">Recetas</h1>
+    <h1 class="portada-bienvenida">Mis recetas</h1>
        
 </div>
 
@@ -16,20 +16,22 @@
 
 {% block contenido %}
 
-<div class="datos_perfil">
+<div class="datos_receta">
 
     {% for receta in recetas %}
 
-    <div>
-        <h2><a href="{% url 'leer_receta' receta.id %}">{{ receta.titulo }}</a></h2>
-        <p>{{ receta.snippet|safe }}</p>
-        <p>{{ receta.fecha }}</p>
-        <p>{{ receta.autor }}</p>
+    <div class="caja_recetas">
+
+        <h2><a href="{% url 'leer_receta' receta.id %}" class="titulo_receta">{{ receta.titulo }}</a></h2>
+        <p class="descripcion_receta">{{ receta.snippet|safe }}</p>
+        <p class="autor_fecha_receta">Publicado en {{ receta.fecha }}, por {{ receta.autor.first_name }} {{ receta.autor.last_name }}</p>
         
     </div>
-    <a class="btn-editar" href="{% url 'eliminarReceta' receta.id %}">Borrar</a>
-    <a class="btn-editar" href="{% url 'editarReceta' receta.id %}">Editar</a>
-    
+
+    <div class="botones_recetas">
+        <a class="btn-editar" href="{% url 'eliminarReceta' receta.id %}">Borrar</a>
+        <a class="btn-editar" href="{% url 'editarReceta' receta.id %}">Editar</a>
+    </div>
 
     {% endfor %}
 

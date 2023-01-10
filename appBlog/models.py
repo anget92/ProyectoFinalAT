@@ -12,5 +12,5 @@ class articulo(models.Model):
         return self.titulo
 
     def snippet(self):
-        return self.cuerpo[:50] + '...'
+        return self.cuerpo[:200] + '...'
     

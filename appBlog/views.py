@@ -53,15 +53,20 @@ def eliminar_Receta(request, id):
 def editarReceta(request, id):
     receta=articulo.objects.get(id=id)
     if request.method=='POST':
+        
         form=agregarArticulo(request.POST, request.FILES)
+        
+
         if form.is_valid():
-            informacion=form.cleaned_data
-            receta.titulo=informacion['titulo']
-            receta.cuerpo=informacion['cuerpo']
+
+            diccionario=form.cleaned_data
+            
+            receta.titulo=diccionario['titulo']
+            receta.cuerpo=diccionario['cuerpo']
             receta.imagen=request.FILES['imagen']
             receta.save()
             recetas=articulo.objects.filter(autor=request.user)
-    
+
             return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
 
         else:
@@ -73,5 +78,5 @@ def editarReceta(request, id):
     else:
         formulario=agregarArticulo(initial={'titulo':receta.titulo, 'cuerpo':receta.cuerpo, 'imagen':receta.imagen})
 
-    return render(request, 'appBlog/editarRecetas.html', {'form':formulario, 'recetas':receta})
+    return render(request, 'appBlog/editarRecetas.html', {'receta':receta,'form':formulario, 'recetas':receta})
 
