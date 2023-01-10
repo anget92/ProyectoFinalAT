@@ -23,7 +23,7 @@
     <div class="caja_recetas">
         
         <h2><a href="{% url 'leer_receta' receta.id %}" class="titulo_receta">{{ receta.titulo }}</a></h2>
-        <p class="'descripcion_receta">{{ receta.snippet|safe }}</p>
+        <p class="descripcion_receta">{{ receta.snippet|safe }}</p>
         <p class="autor_fecha_receta">Publicado en {{ receta.fecha }}, por {{ receta.autor.first_name }} {{ receta.autor.last_name }}</p>
         
     </div>

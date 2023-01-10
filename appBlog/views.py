@@ -52,29 +52,24 @@ def eliminar_Receta(request, id):
 @login_required
 def editarReceta(request, id):
     receta=articulo.objects.get(id=id)
+
     if request.method=='POST':
-        
-        form=agregarArticulo(request.POST, request.FILES)
-        
+                   
+        receta.titulo=request.POST.get('titulo')
+        receta.cuerpo=request.POST.get('cuerpo')
+        receta.save()
+        recetas=articulo.objects.filter(autor=request.user)
+        return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
 
-        if form.is_valid():
+    elif request.FILES:
 
-            diccionario=form.cleaned_data
+        receta.imagen=request.FILES['imagen']
+        receta.save()
+        recetas=articulo.objects.filter(autor=request.user)
+
+        return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
+
             
-            receta.titulo=diccionario['titulo']
-            receta.cuerpo=diccionario['cuerpo']
-            receta.imagen=request.FILES['imagen']
-            receta.save()
-            recetas=articulo.objects.filter(autor=request.user)
-
-            return render(request, 'appBlog/misRecetas.html', {'recetas':recetas})
-
-        else:
-            formulario=agregarArticulo(initial={'titulo':receta.titulo, 'cuerpo':receta.cuerpo, 'imagen':receta.imagen})
-            return render(request, 'appBlog/editarRecetas.html', {'form':formulario, 'recetas':receta, 'mensaje':'Introdujiste un dato erróneo'})
-            
-
-
     else:
         formulario=agregarArticulo(initial={'titulo':receta.titulo, 'cuerpo':receta.cuerpo, 'imagen':receta.imagen})
 
